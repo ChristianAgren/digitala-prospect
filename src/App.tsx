@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.log(count);
-  });
+  }, [count]);
 
   return (
     <div className="bg-gray-700 min-h-full">

@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "vite-tailwind-react",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
