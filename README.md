@@ -1,5 +1,6 @@
 # Digitala prospekt interaktiv prototyp
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Built with [Tailwind](https://tailwindcss.com/docs/installation) and [Framer motion](https://www.framer.com/docs/)
 
 ## Available Scripts
 
