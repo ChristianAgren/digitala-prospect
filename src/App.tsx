@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 function App() {
+  const [toggle, setToggle] = useState<boolean>(false);
+  console.log("toggle", toggle);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-200 flex items-center justify-center h-screen">
+      <motion.button
+        className={`p-3 rounded-sm bg-red-500 hover:bg-red-500`}
+        onClick={() => setToggle(!toggle)}
+        animate={{ rotate: toggle ? 180 : 0 }}
+        transition={{ duration: .7 }}
+      >
+        Toggle
+      </motion.button>
     </div>
   );
 }
