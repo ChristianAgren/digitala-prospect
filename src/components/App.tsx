@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import logo from '../images/logo.svg';
 
@@ -13,7 +14,9 @@ function App() {
     <div className="bg-gray-700 min-h-full">
       <header className="text-gray-50 text-center space-y-4">
         <img src={logo} className="w-60 h-60 mx-auto animate-pulse" alt="logo" />
-        <h1 className="text-2xl font-semibold">React + Tailwind + Vite</h1>
+        <motion.h1 animate={{ rotate: 360 }} className="test text-2xl font-semibold">
+          React + Tailwind + Vite
+        </motion.h1>
 
         <button
           className="px-4 py-2 rounded-full bg-green-600 hover:bg-opacity-80"
