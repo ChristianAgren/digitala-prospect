@@ -1,11 +1,20 @@
 import React from 'react';
+import Header from './header';
 import HeroBackground from './hero.background';
+import ApartmentPresentationSection from './sections/apartment.presentation';
+import AreaDescriptionSection from './sections/area.description';
+import RoomOverviewSection from './sections/room.overview';
 
 function App() {
   return (
-    <div className="bg-gray-600 min-h-full min-w-full">
-      <HeroBackground />{' '}
-    </div>
+    <>
+      <HeroBackground />
+      <Header />
+      <ApartmentPresentationSection />
+      <AreaDescriptionSection />
+      <RoomOverviewSection />
+      <RoomOverviewSection />
+    </>
   );
 }
 
