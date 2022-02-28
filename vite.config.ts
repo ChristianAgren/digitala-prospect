@@ -5,4 +5,15 @@ import reactRefresh from '@vitejs/plugin-react-refresh';
 export default defineConfig({
   base: '/digitala-prospekt/',
   plugins: [reactRefresh()],
+  server: {
+    watch: {
+      usePolling: true,
+    },
+    origin: 'http://localhost:3000',
+    host: true,
+    open: true,
+    fs: {
+      strict: true,
+    },
+  },
 });
