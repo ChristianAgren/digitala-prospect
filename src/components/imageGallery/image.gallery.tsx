@@ -1,5 +1,5 @@
 import { animate, AnimationOptions, motion, MotionStyle, PanInfo, useMotionValue } from 'framer-motion';
-import React from 'react';
+import React, { useCallback } from 'react';
 import ImagePage from './image.page';
 
 const range = [-1, 0, 1];
@@ -15,7 +15,7 @@ const containerStyle: MotionStyle = {
   overflowX: 'hidden',
 };
 
-const transition: AnimationOptions<any> = {
+const transition: AnimationOptions<number> = {
   type: 'spring',
   bounce: 0,
 };
@@ -25,7 +25,7 @@ const ImageGallery: React.FunctionComponent<ImageGalleryProps> = ({ children }: 
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [index, setIndex] = React.useState(0);
 
-  const calculateNewX = () => -index * (containerRef.current?.clientWidth || 0);
+  const calculateNewX = useCallback(() => -index * (containerRef.current?.clientWidth || 0), [index]);
 
   const handleEndDrag = (_: Event, dragProps: PanInfo) => {
     const clientWidth = containerRef.current?.clientWidth || 0;
