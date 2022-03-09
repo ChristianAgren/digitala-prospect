@@ -4,7 +4,7 @@ import ApartmentIntroduction from './sections/apartment.introduction';
 import ApartmentPresentationSection from './sections/apartment.presentation';
 import AreaDescriptionSection from './sections/area.description';
 import RoomOverviewSection from './sections/room.overview';
-import VideoPlayer from './videoplayer';
+import VideoPlayer from './video.player/videoplayer';
 
 function App() {
   const [showingVideo, setShowingVideo] = useState(false);

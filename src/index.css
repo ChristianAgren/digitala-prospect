@@ -29,3 +29,7 @@
 .hero-background-video > video {
   object-fit: cover;
 }
+
+.progress-slider::-webkit-slider-thumb {
+  width: 10px;
+}
