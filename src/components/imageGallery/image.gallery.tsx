@@ -1,4 +1,12 @@
-import { animate, AnimationOptions, motion, MotionStyle, PanInfo, useMotionValue } from 'framer-motion';
+import {
+  animate,
+  AnimatePresence,
+  AnimationOptions,
+  motion,
+  MotionStyle,
+  PanInfo,
+  useMotionValue,
+} from 'framer-motion';
 import React, { useCallback } from 'react';
 import ImagePage from './image.page';
 
@@ -11,7 +19,7 @@ interface ImageGalleryProps {
 const containerStyle: MotionStyle = {
   position: 'relative',
   width: '100%',
-  minHeight: '22rem',
+  minHeight: '22.5rem',
   overflowX: 'hidden',
 };
 
@@ -37,9 +45,9 @@ const ImageGallery: React.FunctionComponent<ImageGalleryProps> = ({ children }: 
       return;
     }
 
-    if (offset.x > clientWidth / 4) {
+    if (offset.x > clientWidth / 6) {
       setIndex(index - 1);
-    } else if (offset.x < -clientWidth / 4) {
+    } else if (offset.x < -clientWidth / 6) {
       setIndex(index + 1);
     } else {
       animate(x, calculateNewX(), transition);
@@ -53,15 +61,17 @@ const ImageGallery: React.FunctionComponent<ImageGalleryProps> = ({ children }: 
 
   return (
     <motion.div ref={containerRef} style={containerStyle}>
-      {range.map(rangeValue => (
-        <ImagePage
-          key={rangeValue + index}
-          x={x}
-          onDragEnd={handleEndDrag}
-          index={rangeValue + index}
-          renderPage={children}
-        />
-      ))}
+      <AnimatePresence>
+        {range.map(rangeValue => (
+          <ImagePage
+            key={rangeValue + index}
+            x={x}
+            onDragEnd={handleEndDrag}
+            index={rangeValue + index}
+            renderPage={children}
+          />
+        ))}
+      </AnimatePresence>
     </motion.div>
   );
 };

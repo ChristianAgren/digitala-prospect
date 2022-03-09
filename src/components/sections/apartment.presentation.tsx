@@ -20,7 +20,7 @@ const ApartmentPresentationSection = () => {
   const [isActive, setActive] = useState(false);
 
   return (
-    <motion.div animate transition={transition} className="bg-slate-100 rounded-md relative my-2 mx-3 mt-[90vh]">
+    <motion.div animate transition={transition} className="bg-slate-100 rounded-md relative my-2 mx-3">
       <motion.div className="flex justify-between">
         <div className="p-4 flex-grow border-r-2">
           <p className="font-body text-xs font-medium text-secondary">Bjurfors beyond presenterar</p>

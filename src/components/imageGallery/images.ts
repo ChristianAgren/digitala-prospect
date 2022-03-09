@@ -1,3 +1,3 @@
-import room_bedroom from '../../images/room_bedroom.png';
+import room_bedroom from '../../../public/images/room_bedroom.png';
 
 export default [room_bedroom, room_bedroom, room_bedroom];

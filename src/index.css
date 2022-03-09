@@ -26,6 +26,6 @@
   }
 }
 
-.test {
-  font-family: 'Bodoni Moda';
+.hero-background-video > video {
+  object-fit: cover;
 }
