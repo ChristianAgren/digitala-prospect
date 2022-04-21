@@ -5,7 +5,7 @@ interface Props {
 }
 
 const ApartmentIntroduction = ({ onPlay }: Props) => (
-  <div className="h-[80vh] flex items-end relative">
+  <div className="h-[80vh] max-w-2xl flex items-end relative">
     <div className=" text-white flex justify-center items-center">
       <svg
         onClick={onPlay}

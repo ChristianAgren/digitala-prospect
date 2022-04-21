@@ -1,7 +1,7 @@
 // import { Carousel } from 'framer-motion';
 import React from 'react';
-import ImageGallery from '../imageGallery/image.gallery';
-import images from '../imageGallery/images';
+import ImageGallery from '../imageGallery-old/image.gallery';
+import images from '../imageGallery-old/images';
 
 const RoomOverviewSection = () => (
   <div className=" bg-slate-100 relative flex flex-col justify-between my-2 px-3 pb-3">

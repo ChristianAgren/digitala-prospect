@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactSlider from 'react-slider';
 
 export interface ISoundSliderProps {
   volume: number;
@@ -17,8 +16,7 @@ const SoundSlider = ({ volume, changeVolume }: ISoundSliderProps) => {
       min="0"
       max="100"
       value={volume}
-      onMouseUp={e => e.preventDefault()}
-      onInput={e => handleOnChange(e)}
+      onChange={e => handleOnChange(Number(e.target.value))}
     />
   );
 };
