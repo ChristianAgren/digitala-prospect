@@ -1,0 +1,81 @@
+import {
+  animate,
+  AnimatePresence,
+  AnimationOptions,
+  motion,
+  MotionStyle,
+  PanInfo,
+  useMotionValue,
+} from 'framer-motion';
+import React, { useCallback } from 'react';
+import ImagePage from './image.page';
+
+const range = [-1, 0, 1];
+
+interface ImageGalleryProps {
+  children: (props: { index: number }) => JSX.Element;
+}
+
+const containerStyle: MotionStyle = {
+  position: 'relative',
+  width: '100%',
+  minHeight: '22.5rem',
+  overflowX: 'hidden',
+};
+
+const transition: AnimationOptions<number> = {
+  type: 'spring',
+  bounce: 0,
+};
+
+const ImageGallery: React.FunctionComponent<ImageGalleryProps> = ({ children }: ImageGalleryProps) => {
+  const x = useMotionValue(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [index, setIndex] = React.useState(0);
+
+  const calculateNewX = useCallback(() => -index * (containerRef.current?.clientWidth || 0), [index]);
+
+  const handleEndDrag = (_: Event, dragProps: PanInfo) => {
+    const clientWidth = containerRef.current?.clientWidth || 0;
+
+    const { offset, velocity } = dragProps;
+
+    if (Math.abs(velocity.y) > Math.abs(velocity.x)) {
+      animate(x, calculateNewX(), transition);
+      return;
+    }
+
+    if (offset.x > clientWidth / 6) {
+      setIndex(index - 1);
+    } else if (offset.x < -clientWidth / 6) {
+      setIndex(index + 1);
+    } else {
+      animate(x, calculateNewX(), transition);
+    }
+  };
+
+  React.useEffect(() => {
+    const controls = animate(x, calculateNewX(), transition);
+    return controls.stop;
+  }, [index, calculateNewX, x]);
+
+  return (
+    <motion.div ref={containerRef} style={containerStyle}>
+      <AnimatePresence>
+        {range.map(rangeValue => (
+          <ImagePage
+            key={rangeValue + index}
+            x={x}
+            onDragEnd={handleEndDrag}
+            index={rangeValue + index}
+            renderPage={children}
+          />
+        ))}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+ImageGallery.displayName = 'ImageGallery';
+
+export default ImageGallery;

@@ -6,6 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        'hero-image': "url('./public/images/hero.jpg')",
+        bjurforsbeyond: "url('./public/images/bjurfors_beyond.png')",
         'hero-image': "url('./src/images/hero.jpg')",
         bjurforsbeyond: "url('./src/images/bjurfors_beyond.png')",
         bedroom: "url('./src/images/room_bedroom.png')",

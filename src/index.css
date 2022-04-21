@@ -9,6 +9,7 @@
   #root {
     max-width: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
   }
 
   body {
@@ -26,6 +27,29 @@
   }
 }
 
-.test {
-  font-family: 'Bodoni Moda';
+:root {
+  --sidebar-width: 15rem;
+}
+
+.hero-background-video > video {
+  object-fit: cover;
+}
+
+.progress-slider::-webkit-slider-thumb {
+  width: 10px;
+}
+
+.sidebar-item {
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.remove-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.remove-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
