@@ -1,18 +1,36 @@
+import { motion, MotionValue } from 'framer-motion';
 import React from 'react';
 import Profile from './profile';
 
-function Sidebar() {
+interface ISidebarProps {
+  pages: {
+    [key: string]: {
+      title: string;
+      ref: React.RefObject<HTMLDivElement>;
+      animation: {
+        opacity: MotionValue<string>;
+      };
+    };
+  };
+}
+
+function Sidebar({ pages }: ISidebarProps) {
+  const onClickItem = (ref: React.RefObject<HTMLDivElement>) => {
+    if (!ref.current) return;
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="fixed top-0 right-0 flex flex-col justify-center items-center w-[var(--sidebar-width)] h-full bg-[#0B1D26]">
+      <div className="bg-bjurforsbeyond w-1/2 h-16 bg-contain bg-center bg-no-repeat" />
       <ul className="text-white">
-        <li className="sidebar-item">Startsida</li>
-        <li className="sidebar-item">Områdesbeskrivning</li>
-        <li className="sidebar-item">Entré/hall</li>
-        <li className="sidebar-item">Sovrum</li>
-        <li className="sidebar-item">Kök</li>
-        <li className="sidebar-item">Badrum</li>
-        <li className="sidebar-item">Planskisser</li>
-        <li className="sidebar-item">Bostadsfakta</li>
+        {Object.values(pages).map(({ title, ref, animation }) => (
+          <motion.li style={{ ...animation }} className="sidebar-item" key={title}>
+            <button type="button" onClick={() => onClickItem(ref)}>
+              {title}
+            </button>
+          </motion.li>
+        ))}
       </ul>
       <Profile />
     </div>

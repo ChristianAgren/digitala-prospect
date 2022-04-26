@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
-function useForwardedRef(ref: React.ForwardedRef<HTMLDivElement>) {
-  const innerRef = useRef(null);
+function useForwardedRef<T>(ref: React.ForwardedRef<T>) {
+  const innerRef = useRef<T>(null);
   useEffect(() => {
     if (!ref) return;
     if (typeof ref === 'function') {
