@@ -1,19 +1,17 @@
-import { motion } from 'framer-motion';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import PlayerControls from './controls';
 
 interface Props {
-  showing: boolean;
-  onClose: () => void;
+  playing: boolean;
 }
 
-const VideoPlayer = ({ showing, onClose }: Props) => {
+const VideoPlayer = ({ playing }: Props) => {
   const player = useRef<ReactPlayer>(null);
   const [playerState, setPlayerState] = useState({
-    playing: true,
-    muted: false,
-    volume: 20,
+    playing,
+    prevVolume: 20,
+    volume: 0,
     progress: 0,
   });
 
@@ -22,13 +20,18 @@ const VideoPlayer = ({ showing, onClose }: Props) => {
   };
 
   const toggleMute = () => {
-    setPlayerState(prev => ({ ...prev, muted: !prev.muted }));
+    if (!playerState.volume) {
+      setPlayerState(prev => ({ ...prev, volume: prev.prevVolume }));
+    } else {
+      setPlayerState(prev => ({ ...prev, volume: 0 }));
+    }
   };
 
   const changeVolume = (val: number) => {
     setPlayerState(prev => ({
       ...prev,
       volume: val,
+      prevVolume: val,
     }));
   };
 
@@ -46,32 +49,34 @@ const VideoPlayer = ({ showing, onClose }: Props) => {
     player.current.seekTo(0);
   };
 
-  if (!showing) return null;
+  useEffect(() => {
+    setPlayerState(prev => ({ ...prev, playing }));
+  }, [playing]);
+
   return (
-    <motion.div className="fixed bg-black bg-cover bg-no-repeat inset-0 z-10">
+    <div className="w-full h-full">
       <ReactPlayer
         ref={player}
         url="./public/video/video.mp4"
         width="100%"
         height="100%"
         playing={playerState.playing}
-        muted={playerState.muted}
+        muted={!playerState.volume}
         volume={playerState.volume / 100}
         onProgress={({ played }) => setPlayerState(prev => ({ ...prev, progress: played * 100 }))}
       />
       <PlayerControls
-        isMuted={playerState.muted}
+        isMuted={!playerState.volume}
         toggleMute={toggleMute}
         isPlaying={playerState.playing}
         togglePlay={togglePlay}
-        onClose={onClose}
         volume={playerState.volume}
         changeVolume={changeVolume}
         updateProgress={updateVideoProgress}
         progress={playerState.progress}
         reload={reloadVideo}
       />
-    </motion.div>
+    </div>
   );
 };
 

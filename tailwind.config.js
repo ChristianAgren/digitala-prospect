@@ -6,11 +6,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-image': "url('./public/images/hero.jpg')",
-        bjurforsbeyond: "url('./public/images/bjurfors_beyond.png')",
-        'hero-image': "url('./src/images/hero.jpg')",
-        bjurforsbeyond: "url('./src/images/bjurfors_beyond.png')",
-        bedroom: "url('./src/images/room_bedroom.png')",
+        'hero-image_1': "url('/images/vargo.png')",
+        'hero-image_2': "url('/images/6114249_Besvärsgatan_3-11.jpg')",
+        'hero-image': "url('/images/6114249_Besvärsgatan_3-13.jpg')",
+        bjurforsbeyond: "url('/images/bjurfors_beyond.png')",
       },
       colors: {
         transparent: 'transparent',
@@ -19,7 +18,8 @@ module.exports = {
         secondary: 'grey',
       },
       fontFamily: {
-        body: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
+        body: ['Caramaran', ...defaultTheme.fontFamily.sans],
+        heading: ['Catamaran', ...defaultTheme.fontFamily.sans],
       },
     },
   },
