@@ -1,7 +1,7 @@
 import { motion, MotionValue } from 'framer-motion';
 import React from 'react';
 
-export interface PageOneProps {
+export interface StartPageProps {
   wrapper: {
     width: MotionValue<string>;
     height: MotionValue<string>;
@@ -34,16 +34,16 @@ const data = [
   { title: 'Byggår', value: '2018' },
 ];
 
-const PageOne = React.forwardRef<HTMLDivElement, PageOneProps>(
+const StartPage = React.forwardRef<HTMLDivElement, StartPageProps>(
   ({ wrapper, landingInfo, shortDescription, container, image }, ref) => (
-    <motion.div ref={ref} style={{ ...container }} className="w-full h-[200vh] relative">
-      <motion.div style={{ ...wrapper }} className="bg-black sticky overflow-hidden shadow-lg">
+    <motion.div ref={ref} className="w-full h-[200vh] relative bg-primary">
+      <motion.div style={{ ...wrapper, ...container }} className="bg-black sticky overflow-hidden shadow-lg">
         <motion.div style={{ ...image }} className="absolute w-screen h-screen bg-hero-image bg-center bg-cover" />
       </motion.div>
       <div className="w-full h-screen absolute top-0 flex items-center justify-center">
         <motion.div style={{ ...landingInfo }} className="max-w-2xl shadow-md">
-          <h1 className="text-white text-center text-4xl lg:text-6xl">Besvärsgatan 3</h1>
-          <h2 className="text-white text-center text-3xl lg:text-4xl pb-8">411 28, Göteborg</h2>
+          <h1 className="text-white text-center text-4xl lg:text-6xl shadowed-title">Besvärsgatan 3</h1>
+          <h2 className="text-white text-center text-3xl lg:text-4xl pb-8 shadowed-title">411 28, Göteborg</h2>
           <table className="bg-white/70 mt-8 rounded-md w-full border-separate py-4 px-8 backdrop-blur-md">
             <tbody>
               {data.map(({ title, value }) => (
@@ -58,7 +58,7 @@ const PageOne = React.forwardRef<HTMLDivElement, PageOneProps>(
       </div>
       <div className="w-full h-screen absolute flex items-center justify-center">
         <motion.div style={{ ...shortDescription }} className="m-8 max-w-2xl">
-          <h1 className="text-white text-center text-3xl lg:text-4xl m-8">Kort beskrivning</h1>
+          <h1 className="text-white text-center text-3xl lg:text-4xl m-8 shadowed-title">Kort beskrivning</h1>
           <p className="rounded-md p-8 bg-white/70 backdrop-blur-md shadow-md">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, nunc, viverra est quis massa mattis
             vestibulum, vitae. Orci varius nunc elit dictumst id convallis elementum. Vel amet, amet, tristique rutrum
@@ -73,4 +73,4 @@ const PageOne = React.forwardRef<HTMLDivElement, PageOneProps>(
   )
 );
 
-export default PageOne;
+export default StartPage;

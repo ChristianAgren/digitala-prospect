@@ -7,7 +7,7 @@ interface ISidebarProps {
     [key: string]: {
       title: string;
       ref: React.RefObject<HTMLDivElement>;
-      animation: {
+      sidebarAnimation: {
         opacity: MotionValue<string>;
       };
     };
@@ -24,8 +24,8 @@ function Sidebar({ pages }: ISidebarProps) {
     <div className="fixed top-0 right-0 flex flex-col justify-center items-center w-[var(--sidebar-width)] h-full bg-[#0B1D26]">
       <div className="bg-bjurforsbeyond w-1/2 h-16 bg-contain bg-center bg-no-repeat" />
       <ul className="text-white">
-        {Object.values(pages).map(({ title, ref, animation }) => (
-          <motion.li style={{ ...animation }} className="sidebar-item" key={title}>
+        {Object.values(pages).map(({ title, ref, sidebarAnimation }) => (
+          <motion.li style={{ ...sidebarAnimation }} className="sidebar-item" key={title}>
             <button type="button" onClick={() => onClickItem(ref)}>
               {title}
             </button>

@@ -57,7 +57,7 @@ const VideoPlayer = ({ playing }: Props) => {
     <div className="w-full h-full">
       <ReactPlayer
         ref={player}
-        url="./public/video/video.mp4"
+        url="video/video.mp4"
         width="100%"
         height="100%"
         playing={playerState.playing}
