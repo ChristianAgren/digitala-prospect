@@ -17,7 +17,6 @@
     min-height: 100%;
     top: 0;
     position: absolute;
-    background-color: #0b1d26;
   }
 
   * {
@@ -31,13 +30,11 @@
     @apply font-heading;
     font-weight: 700;
     line-height: 2;
-    text-shadow: 0px 2px 4px rgba(11, 29, 38, 0.8);
   }
 
   h2 {
     @apply font-heading;
     font-weight: 400;
-    text-shadow: 0px 2px 4px rgba(11, 29, 38, 0.8);
   }
 
   th {
@@ -87,4 +84,20 @@
 .remove-scroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.shadowed-title {
+  text-shadow: 0px 2px 4px rgba(11, 29, 38, 0.8);
+}
+
+.text-content {
+  line-height: 0.4;
+  font-size: 0.9em;
+}
+
+.text-content > p > strong {
+  padding-left: 1rem;
+  font-size: 0.9em;
+  letter-spacing: 1.1px;
+  line-height: 0.9;
 }

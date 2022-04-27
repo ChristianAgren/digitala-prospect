@@ -59,7 +59,7 @@ const PlayerControls = ({
       transition={{ duration: 0.3, ease: 'easeOut' }}
       variants={variants}
     >
-      <div className=" bg-[#0B1D26]/80 w-full relative px-3 py-3">
+      <div className=" bg-[#0B1D26]/80 w-full relative px-3 py-3 backdrop-blur-md">
         <ProgressSlider progress={progress} updateProgress={updateProgress} />
         <div className="flex items-center">
           <PlayPauseReloadButton
