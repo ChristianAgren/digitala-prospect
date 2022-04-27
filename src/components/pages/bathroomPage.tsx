@@ -9,48 +9,50 @@ const BathroomPage = React.forwardRef<HTMLDivElement, BathroomPageProps>(({ shou
   const body = {
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
     },
     hidden: {
       opacity: 0,
-      x: 40,
+      y: 40,
     },
   };
 
   const content = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: 40 },
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 40 },
   };
 
   return (
-    <div ref={ref} className="w-full h-[150vh] relative bg-white">
-      <motion.div className="sticky h-screen flex justify-center items-center top-0">
+    <div ref={ref} className="w-full h-[500vh] relative bg-white">
+      <motion.div className="sticky h-screen w-full top-0 z-10 flex justify-start items-end">
         <AnimatePresence initial={false}>
           {shouldAnimate && (
-            <motion.div className="max-w-6xl" variants={body} initial="hidden" animate="visible" exit="hidden">
-              <motion.div variants={content} initial="hidden" animate="visible" exit="hidden">
-                <h1 className="text-3xl lg:text-4xl my-8 text-[#0B1D26]">Lång beskrivning</h1>
-                <motion.div variants={content} initial="hidden" animate="visible" exit="hidden">
+            <motion.div className="translate-x-10" variants={body} initial="hidden" animate="visible" exit="hidden">
+              <motion.div
+                className=" max-w-4xl p-4 mx-8 mb-8"
+                variants={content}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+              >
+                <h1 className="px-4 text-3xl lg:text-4xl mb-8 text-[#0B1D26]">Badrum</h1>
+                <motion.div
+                  variants={content}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  className=" bg-white/90 backdrop-blur-md p-4 gap-4 columns-3 text-[#0B1D26] text-content text-[.7em] 2xl:text-[1em]"
+                >
                   <p>
-                    MÖTET MELLAN NORRA hamnen och stadskärnan är dynamisk på många sätt. Från anrika hus, torg och
-                    gränder öppnar sig Öresunds mäktiga hav med kajen och hamningången som sina följeslagare. En plats
-                    fyllt av liv och rörelse där badplatser och restauranger avlöser varandra på löpande band. Här, i
-                    direkt anslutning till kajkanten och havet erbjuds nu ett boende om 115 smakfulla kvadratmeter.
-                    VÅNINGEN MED FEM rum och två balkonger är en del av projektet SeaU som har formgetts av Gert
-                    Wingårdh med arkitekter och uppfördes 2018. Föga förvånande, med detta team i åtanke, erbjuds ett
-                    boende med snillrika finesser, stilsäkerhet och genomtänkta detaljer rakt igenom. Ett hem där
-                    ingenting har lämnats åt slumpen. Glaspartierna har placerats minutiöst för att maximera såväl
-                    ljusflöde som utsikt. Balkongerna nås från tre rum. Havsutsikten möter redan i entrén. Material och
-                    färgval utstrålar enhetlighet och harmoni. Samtliga golvytor pryds av en vitpigmenterad
-                    enstavsparkett medan väggarnas kulörer skiftar i vitt och mustigt midnattsblått som
+                    Våningens första badrum går i en sparsmakad och sober ton med helkakel, dusch bakom glasvägg,
+                    handfatskommod och vägghängd wc. Porslinet och utrustningen kommer från Vola och Duravit. Bakom
+                    fönstret reser sig grönskan i sluttningen mot Landalaskogen.
                   </p>
+                  <br />
                   <p>
-                    matchar miljön. Planlösningen är oklanderlig, med de privata och funktionella rummen i en del och de
-                    sociala i den andra. Kontakten med Öresund och de spektakulära solnedgångarna som medföljer avnjuts
-                    som bäst på de två balkongerna som båda är frontade mot havet. Den stora balkongen är inglasad för
-                    att kunna nyttja utelivet oavsett väder och förlänga utesäsongen. PÅ HELSINGÖRSKAJEN INFRIAS den
-                    sällsynta kombinationen av storstadspuls och havets ro. En mötesplats med ett stort utbud som bara
-                    växer sig allt större. Som namnet indikerar är det är här man vill ses helt enkelt!
+                    Även nästa badrum går i en ljus och formren stil med fönster mot grönskan, badkar, handfat (INR) och
+                    vägghängd wc. Porslinet kommer från Duravit där stilren, kantig design i vitt får kontrast av de
+                    svarta blandarna.
                   </p>
                 </motion.div>
               </motion.div>
@@ -58,6 +60,9 @@ const BathroomPage = React.forwardRef<HTMLDivElement, BathroomPageProps>(({ shou
           )}
         </AnimatePresence>
       </motion.div>
+      <div className="min-w-[85%] min-h-screen m-16 relative bg-bathroom1 bg-contain bg-right-top bg-no-repeat" />
+      <div className="min-w-[85%] min-h-screen  m-16 relative bg-bathroom2 bg-contain bg-right-top bg-no-repeat" />
+      <div className="min-w-[85%] min-h-screen  m-16 relative bg-bathroom3 bg-contain bg-right-top bg-no-repeat" />
     </div>
   );
 });

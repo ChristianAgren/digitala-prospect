@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useMemo, useState } from 'react';
 
-function useScrollTriggerInView(scrollTrack: RefObject<HTMLElement>, onlyTriggerOnce = false) {
+function useScrollTriggerInView(scrollTrack: RefObject<HTMLElement>, threshold: number, onlyTriggerOnce = false) {
   const [isInView, setIsInView] = useState(false);
 
   const observer = useMemo(
@@ -11,10 +11,10 @@ function useScrollTriggerInView(scrollTrack: RefObject<HTMLElement>, onlyTrigger
           setIsInView(!!entry?.isIntersecting);
         },
         {
-          threshold: 0.5,
+          threshold,
         }
       ),
-    [isInView, onlyTriggerOnce]
+    [isInView, onlyTriggerOnce, threshold]
   );
 
   useEffect(() => {

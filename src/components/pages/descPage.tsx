@@ -13,17 +13,10 @@ const DescriptionPage = React.forwardRef<HTMLDivElement, DescPageProps>(({ conta
     visible: {
       opacity: 1,
       x: 0,
-      transition: {
-        when: 'beforeChildren',
-        staggerChildren: 0.8,
-      },
     },
     hidden: {
       opacity: 0,
       x: 40,
-      transition: {
-        when: 'afterChildren',
-      },
     },
   };
 
@@ -38,41 +31,37 @@ const DescriptionPage = React.forwardRef<HTMLDivElement, DescPageProps>(({ conta
         <AnimatePresence initial={false}>
           {shouldAnimate && (
             <motion.div className="max-w-4xl p-4" variants={body} initial="hidden" animate="visible" exit="hidden">
-              <motion.div variants={content} initial="hidden" animate="visible" exit="hidden">
-                <h1 className="text-3xl lg:text-4xl my-8 text-[#0B1D26]">Områdesbeskrivning</h1>
+              <motion.div
+                style={{ ...container }}
+                variants={content}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                className="p-4"
+              >
+                <h1 className="text-3xl lg:text-4xl my-8 text-[#0B1D26]">Välkommen</h1>
                 <motion.div
                   variants={content}
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className="gap-8 columns-2 max-h-screen text-[#0B1D26] text-content lg:text-md"
+                  className="gap-8 columns-2 max-h-screen text-[#0B1D26] text-content text-[.7em] 2xl:text-[1em]"
                 >
                   <p>
-                    <strong>MÖTET MELLAN NORRA</strong> hamnen och stadskärnan är dynamisk på många sätt. Från anrika
-                    hus, torg och gränder öppnar sig Öresunds mäktiga hav med kajen och hamningången som sina
-                    följeslagare. En plats fyllt av liv och rörelse där badplatser och restauranger avlöser varandra på
-                    löpande band. Här, i direkt anslutning till kajkanten och havet erbjuds nu ett boende om 115
-                    smakfulla kvadratmeter.
+                    <strong>En tambur med marmorgolv</strong> tar emot. Den gamla kalstenstrappan med tidstrogna
+                    träräcken försvinner upp mot tredje och översta plan där den stora våningen ligger. Här nere finns
+                    hatthylla och avhängning i gammal stil. Ett fönster, halvvägs upp i trappan, avslöjar höjden och
+                    utsikten över de kuperade kvarteren. En låg, frilagd tegelvägg med smide och översida i ek utgör
+                    räcke mot entréhallen.
                   </p>
                   <br />
                   <p>
-                    <strong>VÅNINGEN MED FEM</strong> rum och två balkonger är en del av projektet SeaU som har
-                    formgetts av Gert Wingårdh med arkitekter och uppfördes 2018. Föga förvånande, med detta team i
-                    åtanke, erbjuds ett boende med snillrika finesser, stilsäkerhet och genomtänkta detaljer rakt
-                    igenom. Ett hem där ingenting har lämnats åt slumpen. Glaspartierna har placerats minutiöst för att
-                    maximera såväl ljusflöde som utsikt. Balkongerna nås från tre rum. Havsutsikten möter redan i
-                    entrén. Material och färgval utstrålar enhetlighet och harmoni. Samtliga golvytor pryds av en
-                    vitpigmenterad enstavsparkett medan väggarnas kulörer skiftar i vitt och mustigt midnattsblått som
-                    matchar miljön. Planlösningen är oklanderlig, med de privata och funktionella rummen i en del och de
-                    sociala i den andra. Kontakten med Öresund och de spektakulära solnedgångarna som medföljer avnjuts
-                    som bäst på de två balkongerna som båda är frontade mot havet. Den stora balkongen är inglasad för
-                    att kunna nyttja utelivet oavsett väder och förlänga utesäsongen.
-                  </p>
-                  <br />
-                  <p>
-                    <strong>PÅ HELSINGÖRSKAJEN INFRIAS</strong> den sällsynta kombinationen av storstadspuls och havets
-                    ro. En mötesplats med ett stort utbud som bara växer sig allt större. Som namnet indikerar är det är
-                    här man vill ses helt enkelt!
+                    <strong>Väl uppe är de</strong> första intrycket av den stora våningen smått dramatiskt. Ett vackert
+                    ekplankgolv sträcker ut under den fria takhöjden som reser sig fem meter upp till nock. Känslan av
+                    stora och mäktiga rumsvolymer är omedelbar och tankarna går till klassiska, internationella
+                    takvåningar. Floder med ljus forsar in från alla håll, inte minst från de många stora takfönstren.
+                    Väggarna går i en sobert ljusgrå nyans. Till vänster i hallen finns platsbyggd förvaring bakom ett
+                    parti med släta, mörkbetsade ytor. Den mer privata sovrumsdelen skymtar bakom en öppning.
                   </p>
                 </motion.div>
               </motion.div>

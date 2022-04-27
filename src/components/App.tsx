@@ -113,15 +113,15 @@ function App() {
       top: useScrollAnimation(scrollableContainer, pages.start.ref, ['-3rem', '0rem'], 0, 600),
     },
     landingInfo: {
-      opacity: useScrollAnimation(scrollableContainer, pages.start.ref, ['1', '0'], 0, height * 0.7),
+      opacity: useScrollAnimation(scrollableContainer, pages.start.ref, ['1', '0'], 0, height * 0.75),
     },
     shortDescription: {
-      opacity: useScrollAnimation(scrollableContainer, pages.start.ref, ['0', '1'], -height / 3, height / 2),
+      opacity: useScrollAnimation(scrollableContainer, pages.start.ref, ['0', '1'], -height * 0.33, height * 0.5),
     },
   };
 
   const videoPageProps: VideoPageProps = {
-    playVideo: useScrollTriggerInView(pages.video.ref),
+    playVideo: useScrollTriggerInView(pages.video.ref, 0.5),
     opacity: useScrollAnimation(scrollableContainer, pages.video.ref, ['1', '0'], -height - 400, -height + 100),
   };
 
@@ -131,27 +131,27 @@ function App() {
         scrollableContainer,
         pages.description.ref,
         ['#0b1d26', '#FFFFFF'],
-        height / 2,
-        height / 2
+        height * 0.75,
+        height * 0.5
       ),
     },
-    shouldAnimate: useScrollTriggerInView(pages.description.ref, true),
+    shouldAnimate: useScrollTriggerInView(pages.description.ref, 0.5, true),
   };
 
   const entrancePageProps: EntrancePageProps = {
-    shouldAnimate: useScrollTriggerInView(pages.entrance.ref),
+    shouldAnimate: useScrollTriggerInView(pages.entrance.ref, 0.2),
   };
 
   const bedroomPageProps: BedroomPageProps = {
-    shouldAnimate: useScrollTriggerInView(pages.bedroom.ref),
+    shouldAnimate: useScrollTriggerInView(pages.bedroom.ref, 0.2),
   };
 
   const kitchenPageProps: KitchenPageProps = {
-    shouldAnimate: useScrollTriggerInView(pages.kitchen.ref),
+    shouldAnimate: useScrollTriggerInView(pages.kitchen.ref, 0.2),
   };
 
   const bathroomPageProps: BathroomPageProps = {
-    shouldAnimate: useScrollTriggerInView(pages.bathroom.ref),
+    shouldAnimate: useScrollTriggerInView(pages.bathroom.ref, 0.2),
   };
 
   return (
