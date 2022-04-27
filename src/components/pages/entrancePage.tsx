@@ -10,17 +10,10 @@ const EntrancePage = React.forwardRef<HTMLDivElement, EntrancePageProps>(({ shou
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        when: 'beforeChildren',
-        staggerChildren: 0.8,
-      },
     },
     hidden: {
       opacity: 0,
       y: 40,
-      transition: {
-        when: 'afterChildren',
-      },
     },
   };
 
@@ -30,34 +23,46 @@ const EntrancePage = React.forwardRef<HTMLDivElement, EntrancePageProps>(({ shou
   };
 
   return (
-    <div ref={ref} className="w-full h-[150vh] relative bg-white">
-      <motion.div className="sticky h-screen flex justify-center items-center top-0">
+    <div ref={ref} className="w-full h-[500vh] relative bg-white">
+      <motion.div className="sticky h-screen w-full top-0 z-10 flex justify-start items-end">
         <AnimatePresence initial={false}>
           {shouldAnimate && (
-            <motion.div className="max-w-6xl" variants={body} initial="hidden" animate="visible" exit="hidden">
-              <motion.div variants={content} initial="hidden" animate="visible" exit="hidden">
-                <h1 className="text-3xl lg:text-4xl my-8 text-[#0B1D26]">Lång beskrivning</h1>
-                <motion.div variants={content} initial="hidden" animate="visible" exit="hidden">
+            <motion.div className="translate-x-10" variants={body} initial="hidden" animate="visible" exit="hidden">
+              <motion.div
+                className=" max-w-6xl p-4 mx-8 mb-8"
+                variants={content}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+              >
+                <h1 className="px-4 text-3xl lg:text-4xl mb-8 text-[#0B1D26]">Entré / Hall</h1>
+                <motion.div
+                  variants={content}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  className=" bg-white/90 backdrop-blur-md p-4 gap-4 columns-3 text-[#0B1D26] text-content text-[.7em] 2xl:text-[1em]"
+                >
                   <p>
-                    MÖTET MELLAN NORRA hamnen och stadskärnan är dynamisk på många sätt. Från anrika hus, torg och
-                    gränder öppnar sig Öresunds mäktiga hav med kajen och hamningången som sina följeslagare. En plats
-                    fyllt av liv och rörelse där badplatser och restauranger avlöser varandra på löpande band. Här, i
-                    direkt anslutning till kajkanten och havet erbjuds nu ett boende om 115 smakfulla kvadratmeter.
-                    VÅNINGEN MED FEM rum och två balkonger är en del av projektet SeaU som har formgetts av Gert
-                    Wingårdh med arkitekter och uppfördes 2018. Föga förvånande, med detta team i åtanke, erbjuds ett
-                    boende med snillrika finesser, stilsäkerhet och genomtänkta detaljer rakt igenom. Ett hem där
-                    ingenting har lämnats åt slumpen. Glaspartierna har placerats minutiöst för att maximera såväl
-                    ljusflöde som utsikt. Balkongerna nås från tre rum. Havsutsikten möter redan i entrén. Material och
-                    färgval utstrålar enhetlighet och harmoni. Samtliga golvytor pryds av en vitpigmenterad
-                    enstavsparkett medan väggarnas kulörer skiftar i vitt och mustigt midnattsblått som
+                    Tillsammans med det genomgående ljusa ekgolvet får det italienska designköket från Poliform ett
+                    grafiskt, närmast minimalistiskt, uttryck – de släta luckornas mörkbets står mot arbetsytornas
+                    bländvita komposit. Vitvarorna är helintegrerade, med enstaka inslag av glas och signeras bl.a.
+                    Gaggenau.
                   </p>
+                  <br />
                   <p>
-                    matchar miljön. Planlösningen är oklanderlig, med de privata och funktionella rummen i en del och de
-                    sociala i den andra. Kontakten med Öresund och de spektakulära solnedgångarna som medföljer avnjuts
-                    som bäst på de två balkongerna som båda är frontade mot havet. Den stora balkongen är inglasad för
-                    att kunna nyttja utelivet oavsett väder och förlänga utesäsongen. PÅ HELSINGÖRSKAJEN INFRIAS den
-                    sällsynta kombinationen av storstadspuls och havets ro. En mötesplats med ett stort utbud som bara
-                    växer sig allt större. Som namnet indikerar är det är här man vill ses helt enkelt!
+                    Den öppna planlösningens effektfulla rumsvolym får en välbehövlig balans när taket efterhand sänks
+                    över kök och matsal. Det skapar en mjuk rumslighet och en trivsam miljö när långbordet står dukat
+                    till fest. Tre glaspartier med djupa nischer ger fint ljus, en varm kväll står de öppna ut mot
+                    fågelsång och sommarens dofter. Utsikten över staden avslöjar det höga och fria läget. En
+                    vinterkväll räcker några levande ljus i nischerna för att skapa stark atmosfär.
+                  </p>
+                  <br />
+                  <p>
+                    När dina nattgäster undrar var de ska sova, överraskar du med att sänka ner trappan till loftet, med
+                    ett knapptryck. Trappan i svart stål med vita steg blir ett designelement som reser sig diagonalt
+                    genom rummet. Här uppe fortsätter ekgolvet med ca 12 kvm under nocken. Ytan är naturligt avgränsad
+                    för allt från tevespel, dataarbetsplats eller gästsängar.
                   </p>
                 </motion.div>
               </motion.div>
@@ -65,6 +70,9 @@ const EntrancePage = React.forwardRef<HTMLDivElement, EntrancePageProps>(({ shou
           )}
         </AnimatePresence>
       </motion.div>
+      <div className="min-w-[85%] min-h-screen m-16 relative bg-entrance1 bg-contain bg-right-top bg-no-repeat" />
+      <div className="min-w-[85%] min-h-screen  m-16 relative bg-entrance2 bg-contain bg-right-top bg-no-repeat" />
+      <div className="min-w-[85%] min-h-screen  m-16 relative bg-entrance3 bg-contain bg-right-top bg-no-repeat" />
     </div>
   );
 });

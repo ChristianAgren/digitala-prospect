@@ -44,7 +44,7 @@ const StartPage = React.forwardRef<HTMLDivElement, StartPageProps>(
         <motion.div style={{ ...landingInfo }} className="max-w-2xl shadow-md">
           <h1 className="text-white text-center text-4xl lg:text-6xl shadowed-title">Besvärsgatan 3</h1>
           <h2 className="text-white text-center text-3xl lg:text-4xl pb-8 shadowed-title">411 28, Göteborg</h2>
-          <table className="bg-white/70 mt-8 rounded-md w-full border-separate py-4 px-8 backdrop-blur-md">
+          <table className="bg-white/90 mt-8 rounded-md w-full border-separate py-4 px-8 backdrop-blur-md">
             <tbody>
               {data.map(({ title, value }) => (
                 <tr key={`${title}-${value}`}>
@@ -58,14 +58,12 @@ const StartPage = React.forwardRef<HTMLDivElement, StartPageProps>(
       </div>
       <div className="w-full h-screen absolute flex items-center justify-center">
         <motion.div style={{ ...shortDescription }} className="m-8 max-w-2xl">
-          <h1 className="text-white text-center text-3xl lg:text-4xl m-8 shadowed-title">Kort beskrivning</h1>
-          <p className="rounded-md p-8 bg-white/70 backdrop-blur-md shadow-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus, nunc, viverra est quis massa mattis
-            vestibulum, vitae. Orci varius nunc elit dictumst id convallis elementum. Vel amet, amet, tristique rutrum
-            velit ultricies ut. Tellus neque, magna non aliquet diam pharetra sed ac. Sed varius eu, dictum nec posuere
-            elementum. Nulla nisi, ac laoreet turpis fringilla purus aliquet. Posuere ut cras lectus integer mauris
-            maecenas. Ornare vitae pellentesque ut fringilla non, eu. Mi nulla aenean ornare bibendum faucibus cursus
-            quam.
+          <p className="rounded-md p-12 bg-white/90 backdrop-blur-md shadow-md">
+            Runt det stilrena tegelhuset från 1880 reser sig lövskogsgrönskan. Träden klättrar uppför höjden, där
+            Landalaskogen tar över med granitbranter och vild natur. Dessa lite hemliga kvarter präglas av
+            höjdskillnader, trappor och gränder mellan byggnader från olika tidsperioder. Huset för tankarna till ett
+            klassiskt Town House. Uppe i den smått spektakulära takvåningen är känslan av att befinna sig högt över
+            staden ständigt närvarande.
           </p>
         </motion.div>
       </div>
