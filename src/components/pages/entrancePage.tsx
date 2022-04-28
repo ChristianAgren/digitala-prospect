@@ -13,17 +13,17 @@ const EntrancePage = React.forwardRef<HTMLDivElement, EntrancePageProps>(({ shou
     },
     hidden: {
       opacity: 0,
-      y: 40,
+      y: -40,
     },
   };
 
   const content = {
-    visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
   };
 
   return (
-    <div ref={ref} className="w-full h-[500vh] relative bg-white">
+    <div ref={ref} className="w-full relative pb-20 bg-whitehue">
       <motion.div className="sticky h-screen w-full top-0 z-10 flex justify-start items-end">
         <AnimatePresence initial={false}>
           {shouldAnimate && (
@@ -41,7 +41,7 @@ const EntrancePage = React.forwardRef<HTMLDivElement, EntrancePageProps>(({ shou
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className=" bg-white/90 backdrop-blur-md p-4 gap-4 columns-3 text-[#0B1D26] text-content text-[.7em] 2xl:text-[1em]"
+                  className=" bg-whitehue/90 max-w-[75%] backdrop-blur-md p-4 gap-4 columns-3 text-[#0B1D26] text-content text-[.8em] desktop:text-[1em]"
                 >
                   <p>
                     Tillsammans med det genomgående ljusa ekgolvet får det italienska designköket från Poliform ett
@@ -70,9 +70,11 @@ const EntrancePage = React.forwardRef<HTMLDivElement, EntrancePageProps>(({ shou
           )}
         </AnimatePresence>
       </motion.div>
-      <div className="min-w-[85%] min-h-screen m-16 relative bg-entrance1 bg-contain bg-right-top bg-no-repeat" />
-      <div className="min-w-[85%] min-h-screen  m-16 relative bg-entrance2 bg-contain bg-right-top bg-no-repeat" />
-      <div className="min-w-[85%] min-h-screen  m-16 relative bg-entrance3 bg-contain bg-right-top bg-no-repeat" />
+      <div className="mt-[-100vh]">
+        <div className="min-w-[85%] min-h-screen m-4 relative bg-entrance1 bg-contain bg-right-top bg-no-repeat" />
+        <div className="min-w-[85%] min-h-screen  m-4 relative bg-entrance2 bg-contain bg-right-top bg-no-repeat" />
+        <div className="min-w-[85%] min-h-screen  m-4 relative bg-entrance3 bg-contain bg-right-top bg-no-repeat" />
+      </div>
     </div>
   );
 });

@@ -24,14 +24,13 @@ export interface StartPageProps {
 }
 
 const data = [
-  { title: 'Utgångspris', value: '10 950 000kr' },
-  { title: 'Avgift', value: '5 836 kr/mån' },
-  { title: 'Antal rum', value: '5 varav 3 sovrum' },
-  { title: 'Boarea', value: '115 kvm' },
-  { title: 'Våningsplan', value: '2 av 8' },
-  { title: 'Balkong', value: 'Ja' },
-  { title: 'Hiss', value: 'Ja' },
-  { title: 'Byggår', value: '2018' },
+  { title: 'Utgångspris', value: '10 500 000 kr' },
+  { title: 'Avgift', value: '5 425 kr/mån' },
+  { title: 'Antal rum', value: '3 rok' },
+  { title: 'Boarea', value: '124 kvm' },
+  { title: 'Våningsplan', value: '3 av 3' },
+  { title: 'Hiss', value: 'Nej' },
+  { title: 'Byggår', value: '1886' },
 ];
 
 const StartPage = React.forwardRef<HTMLDivElement, StartPageProps>(
@@ -44,7 +43,7 @@ const StartPage = React.forwardRef<HTMLDivElement, StartPageProps>(
         <motion.div style={{ ...landingInfo }} className="max-w-2xl shadow-md">
           <h1 className="text-white text-center text-4xl lg:text-6xl shadowed-title">Besvärsgatan 3</h1>
           <h2 className="text-white text-center text-3xl lg:text-4xl pb-8 shadowed-title">411 28, Göteborg</h2>
-          <table className="bg-white/90 mt-8 rounded-md w-full border-separate py-4 px-8 backdrop-blur-md">
+          <table className="bg-whitehue/90 mt-8 rounded-md w-full border-separate py-4 px-8 backdrop-blur-md">
             <tbody>
               {data.map(({ title, value }) => (
                 <tr key={`${title}-${value}`}>
@@ -58,7 +57,7 @@ const StartPage = React.forwardRef<HTMLDivElement, StartPageProps>(
       </div>
       <div className="w-full h-screen absolute flex items-center justify-center">
         <motion.div style={{ ...shortDescription }} className="m-8 max-w-2xl">
-          <p className="rounded-md p-12 bg-white/90 backdrop-blur-md shadow-md">
+          <p className="rounded-md p-12 bg-whitehue/90 backdrop-blur-md shadow-md">
             Runt det stilrena tegelhuset från 1880 reser sig lövskogsgrönskan. Träden klättrar uppför höjden, där
             Landalaskogen tar över med granitbranter och vild natur. Dessa lite hemliga kvarter präglas av
             höjdskillnader, trappor och gränder mellan byggnader från olika tidsperioder. Huset för tankarna till ett

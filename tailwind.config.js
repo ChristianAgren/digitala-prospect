@@ -4,6 +4,10 @@ module.exports = {
   mode: 'jit',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      desktop: '1540px',
+      ...defaultTheme.screens,
+    },
     extend: {
       backgroundImage: {
         'hero-image': "url('/images/6114249_Besvärsgatan_3-13.jpg')",
@@ -20,11 +24,13 @@ module.exports = {
         kitchen1: "url('/images/kitchen1.jpg')",
         kitchen2: "url('/images/kitchen2.jpg')",
         kitchen3: "url('/images/kitchen3.jpg')",
+        planlosning: "url('/images/planlosning.png')",
       },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
         primary: '#0B1D26',
+        whitehue: '#f7fcff',
         secondary: 'grey',
       },
       fontFamily: {
