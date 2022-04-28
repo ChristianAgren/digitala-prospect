@@ -61,7 +61,7 @@ const MapPage = React.forwardRef<HTMLDivElement, MapPageProps>(({ pitch, zoom, o
               <strong>411 28, Göteborg</strong>
             </p>
           </div>
-          <div className="w-0 h-0 border-x-[20px] border-l-transparent border-r-transparent border-t-[20px] border-t-[#F7FCFF]" />
+          <div className=" translate-y-[-1px] w-0 h-0 border-x-[20px] border-l-transparent border-r-transparent border-t-[20px] border-t-[#F7FCFF]" />
         </div>
       </motion.div>
     </div>
