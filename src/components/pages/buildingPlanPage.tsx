@@ -33,7 +33,7 @@ const BuildingPlanPage = React.forwardRef<HTMLDivElement, BuildingPlanPageProps>
   };
 
   return (
-    <div ref={ref} className="w-full h-[200vh] relative bg-whitehue">
+    <div ref={ref} className="w-full h-[120vh] relative bg-whitehue">
       <motion.div className="sticky h-screen w-full top-0 z-10">
         <AnimatePresence initial={false}>
           {shouldAnimate && (
