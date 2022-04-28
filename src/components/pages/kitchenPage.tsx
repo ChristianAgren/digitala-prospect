@@ -13,17 +13,17 @@ const KitchenPage = React.forwardRef<HTMLDivElement, KitchenPageProps>(({ should
     },
     hidden: {
       opacity: 0,
-      y: 40,
+      y: -40,
     },
   };
 
   const content = {
-    visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
   };
 
   return (
-    <div ref={ref} className="w-full h-[500vh] relative bg-white">
+    <div ref={ref} className="w-full pb-20 relative bg-whitehue">
       <motion.div className="sticky h-screen w-full top-0 z-10 flex justify-start items-end">
         <AnimatePresence initial={false}>
           {shouldAnimate && (
@@ -41,7 +41,7 @@ const KitchenPage = React.forwardRef<HTMLDivElement, KitchenPageProps>(({ should
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className=" bg-white/90 backdrop-blur-md p-4 gap-4 columns-3 text-[#0B1D26] text-content text-[.7em] 2xl:text-[1em]"
+                  className=" bg-whitehue/90 max-w-[75%] backdrop-blur-md p-4 gap-4 columns-3 text-[#0B1D26] text-content text-[.8em] desktop:text-[1em]"
                 >
                   <p>
                     Till höger, i öppen planlösning med matsal och kök, ligger våningens ljusa sällskapsytor.
@@ -50,7 +50,6 @@ const KitchenPage = React.forwardRef<HTMLDivElement, KitchenPageProps>(({ should
                     slående. En höstkväll, när regnet smattrar mot takfönstren, sprakar björkveden i den formrena
                     gjutjärnskaminen. En sådan kväll skapar de stora ytornas belysning en fantastisk atmosfär.
                   </p>
-                  <br />
                   <p>
                     I öppen planlösning ligger det formrena köket som är centrerat runt en större köksö med underskåp.
                     Bjud in kvällens gäster att sitta ner med sina glas vid barhänget i mörkbetsad ek.
@@ -61,9 +60,11 @@ const KitchenPage = React.forwardRef<HTMLDivElement, KitchenPageProps>(({ should
           )}
         </AnimatePresence>
       </motion.div>
-      <div className="min-w-[85%] min-h-screen m-16 relative bg-kitchen1 bg-contain bg-right-top bg-no-repeat" />
-      <div className="min-w-[85%] min-h-screen  m-16 relative bg-kitchen2 bg-contain bg-right-top bg-no-repeat" />
-      <div className="min-w-[85%] min-h-screen  m-16 relative bg-kitchen3 bg-contain bg-right-top bg-no-repeat" />
+      <div className="mt-[-100vh]">
+        <div className="min-w-[85%] min-h-screen m-4 relative bg-kitchen1 bg-contain bg-right-top bg-no-repeat" />
+        <div className="min-w-[85%] min-h-screen  m-4 relative bg-kitchen2 bg-contain bg-right-top bg-no-repeat" />
+        <div className="min-w-[85%] min-h-screen  m-4 relative bg-kitchen3 bg-contain bg-right-top bg-no-repeat" />
+      </div>
     </div>
   );
 });

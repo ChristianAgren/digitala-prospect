@@ -10,6 +10,8 @@ import EntrancePage, { EntrancePageProps } from './pages/entrancePage';
 import BedroomPage, { BedroomPageProps } from './pages/bedroomPage';
 import KitchenPage, { KitchenPageProps } from './pages/kitchenPage';
 import BathroomPage, { BathroomPageProps } from './pages/bathroomPage';
+import BuildingPlanPage, { BuildingPlanPageProps } from './pages/buildingPlanPage';
+import MapPage, { MapPageProps } from './pages/MapPage';
 
 function App() {
   // Dimensions from window
@@ -24,6 +26,8 @@ function App() {
   const bedroomRef = useRef<HTMLDivElement>(null);
   const kitchenRef = useRef<HTMLDivElement>(null);
   const bathroomRef = useRef<HTMLDivElement>(null);
+  const buildingPlanRef = useRef<HTMLDivElement>(null);
+  const mapPageRef = useRef<HTMLDivElement>(null);
 
   // All individual pages and reference elements
   const pages = {
@@ -83,6 +87,22 @@ function App() {
         scale: useScrollAnimation(scrollableContainer, bathroomRef, ['.95', '1', '1', '.95']),
       },
     },
+    buildingPlan: {
+      title: 'Planlösning',
+      ref: buildingPlanRef,
+      sidebarAnimation: {
+        opacity: useScrollAnimation(scrollableContainer, buildingPlanRef, ['0.5', '1', '1', '0.5']),
+        scale: useScrollAnimation(scrollableContainer, buildingPlanRef, ['.95', '1', '1', '.95']),
+      },
+    },
+    map: {
+      title: 'Karta',
+      ref: mapPageRef,
+      sidebarAnimation: {
+        opacity: useScrollAnimation(scrollableContainer, mapPageRef, ['0.5', '1', '1', '0.5']),
+        scale: useScrollAnimation(scrollableContainer, mapPageRef, ['.95', '1', '1', '.95']),
+      },
+    },
   };
 
   // Animations for pages
@@ -130,7 +150,7 @@ function App() {
       backgroundColor: useScrollAnimation(
         scrollableContainer,
         pages.description.ref,
-        ['#0b1d26', '#FFFFFF'],
+        ['#0b1d26', '#f7fcff'],
         height * 0.75,
         height * 0.5
       ),
@@ -139,19 +159,29 @@ function App() {
   };
 
   const entrancePageProps: EntrancePageProps = {
-    shouldAnimate: useScrollTriggerInView(pages.entrance.ref, 0.2),
+    shouldAnimate: useScrollTriggerInView(pages.entrance.ref, 0.15),
   };
 
   const bedroomPageProps: BedroomPageProps = {
-    shouldAnimate: useScrollTriggerInView(pages.bedroom.ref, 0.2),
+    shouldAnimate: useScrollTriggerInView(pages.bedroom.ref, 0.15),
   };
 
   const kitchenPageProps: KitchenPageProps = {
-    shouldAnimate: useScrollTriggerInView(pages.kitchen.ref, 0.2),
+    shouldAnimate: useScrollTriggerInView(pages.kitchen.ref, 0.15),
   };
 
   const bathroomPageProps: BathroomPageProps = {
-    shouldAnimate: useScrollTriggerInView(pages.bathroom.ref, 0.2),
+    shouldAnimate: useScrollTriggerInView(pages.bathroom.ref, 0.15),
+  };
+
+  const buildingPlanPageProps: BuildingPlanPageProps = {
+    shouldAnimate: useScrollTriggerInView(pages.buildingPlan.ref, 0.15),
+  };
+
+  const mapPageProps: MapPageProps = {
+    pitch: useScrollAnimation(scrollableContainer, pages.map.ref, [50, 70]),
+    zoom: useScrollAnimation(scrollableContainer, pages.map.ref, [6, 14]),
+    opacity: useScrollAnimation(scrollableContainer, pages.map.ref, [0, 1], 0, height * 3),
   };
 
   return (
@@ -164,6 +194,8 @@ function App() {
         <BedroomPage ref={pages.bedroom.ref} {...bedroomPageProps} />
         <KitchenPage ref={pages.kitchen.ref} {...kitchenPageProps} />
         <BathroomPage ref={pages.bathroom.ref} {...bathroomPageProps} />
+        <BuildingPlanPage ref={pages.buildingPlan.ref} {...buildingPlanPageProps} />
+        <MapPage ref={pages.map.ref} {...mapPageProps} />
       </Content>
       <Sidebar pages={pages} />
     </>

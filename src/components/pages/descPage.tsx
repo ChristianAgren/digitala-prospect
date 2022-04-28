@@ -16,13 +16,13 @@ const DescriptionPage = React.forwardRef<HTMLDivElement, DescPageProps>(({ conta
     },
     hidden: {
       opacity: 0,
-      x: 40,
+      x: -40,
     },
   };
 
   const content = {
     visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: 40 },
+    hidden: { opacity: 0, x: -40 },
   };
 
   return (
@@ -45,7 +45,7 @@ const DescriptionPage = React.forwardRef<HTMLDivElement, DescPageProps>(({ conta
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className="gap-8 columns-2 max-h-screen text-[#0B1D26] text-content text-[.7em] 2xl:text-[1em]"
+                  className="gap-8 columns-2 max-h-screen text-[#0B1D26] text-content text-[.8em] desktop:text-[1em]"
                 >
                   <p>
                     <strong>En tambur med marmorgolv</strong> tar emot. Den gamla kalstenstrappan med tidstrogna
